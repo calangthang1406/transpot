@@ -17,6 +17,7 @@ public class thongTinDonHang {
     private int cao;
     private int rong;
     Scanner scanner = new Scanner(System.in);
+
     public thongTinDonHang() {
     }
 
@@ -67,11 +68,11 @@ public class thongTinDonHang {
     public void setRong(int rong) {
         this.rong = rong;
     }
-    
-    /* PHƯƠNG THỨC */ 
+
+    /* PHƯƠNG THỨC */
     // Nhập thông tin đơn hàng
-    public void nhap(){
-        System.out.println( "Nhap loai hang: ");
+    public void nhap() {
+        System.out.println("Nhap loai hang: ");
         loaiHang = scanner.nextLine();
         System.out.println("Tien hang: ");
         tienHang = scanner.nextLine();
@@ -82,10 +83,11 @@ public class thongTinDonHang {
         System.out.println("Chieu rong: ");
         rong = scanner.nextInt();
     }
+
     @Override
-    public String toString(){
-        return "Nhap loai hang: "+ this.loaiHang + ",Tien hang" + this.tienHang + ",Trong luong " + this.trongLuong + ",Chieu cao" + this.cao + ",Chieu rong" + this.rong;
+    public String toString() {
+        return "Nhap loai hang: " + this.loaiHang + ",Tien hang" + this.tienHang + ",Trong luong " + this.trongLuong
+                + ",Chieu cao" + this.cao + ",Chieu rong" + this.rong;
     }
-    
-    
+
 }
