@@ -7,22 +7,27 @@
  *
  * @author PC
  */
+import java.util.Scanner;
 public class nguoiGui extends nguoi {
+    String tinhng;
 
-    public nguoiGui(String hoTen, String diaChi, String dịaChiTinh, String sdt) {
-
-        super(hoTen, diaChi, dịaChiTinh, sdt);
-
+    public nguoiGui() {
     }
-    
+    Scanner sc = new Scanner(System.in);
+
     /* PHƯƠNG THỨC */
-    
     // mảng các tỉnh miền nam
     // mảng các tỉnh miền trung
     // mảng các tỉnh miền bắc
     // nhập thông tin người gửi
     // xuất thông tin người gửi 
-   
-    
-   
+    /*nhập thông tin người gửi*/
+    @Override
+    public void nhap() {
+        super.nhap();
+        System.out.println("Vui long nhap dia chi tinh nguoi gửi: ");
+	tinhng = sc.nextLine();
+
+    }
+
 }

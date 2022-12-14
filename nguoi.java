@@ -1,30 +1,30 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import java.util.Scanner;
 
 /**
  *
  * @author PC
  */
+import java.util.Scanner;
+
 public abstract class nguoi {
+
     private String hoTen;
     private String diaChi;
-    private String dịaChiTinh;
+
     private String sdt;
-    Scanner scanner = new Scanner(System.in);
 
     public nguoi() {
     }
 
-    public nguoi(String hoTen, String diaChi, String dịaChiTinh, String sdt) {
+    public nguoi(String hoTen, String diaChi, String sdt) {
         this.hoTen = hoTen;
         this.diaChi = diaChi;
-        this.dịaChiTinh = dịaChiTinh;
-        this.sdt = sdt;
+
     }
+    Scanner n = new Scanner(System.in);
 
     public String getHoTen() {
         return hoTen;
@@ -42,14 +42,6 @@ public abstract class nguoi {
         this.diaChi = diaChi;
     }
 
-    public String getDịaChiTinh() {
-        return dịaChiTinh;
-    }
-
-    public void setDịaChiTinh(String dịaChiTinh) {
-        this.dịaChiTinh = dịaChiTinh;
-    }
-
     public String getSdt() {
         return sdt;
     }
@@ -59,17 +51,25 @@ public abstract class nguoi {
     }
 
     public void nhap() {
-        System.out.println("Nhap Ho va ten: ");
-        hoTen = scanner.nextLine();
-        System.out.println("Nhap dia chi: ");
-        diaChi = scanner.nextLine();
-        System.out.println("Nhap so dien thoai: ");
-        sdt = scanner.nextLine();
+
+        System.out.println("Họ tên >>");
+        hoTen = n.nextLine();
+        System.out.println("nhập địa chỉ ( xã, huyện ) >>");
+        diaChi = n.nextLine();
+        System.out.println("nhập số điện thoại >>");
+        sdt = n.nextLine();
     }
 
-    @Override
-    public String toString() {
-        return "Ho ten: " + this.hoTen + ",Dia chi: " + this.diaChi + ",So dien thoai: " + this.sdt;
+    public void xuatnguoinhan() {
+        System.out.println("họ tên người nhận: " + hoTen);
+        System.out.println("địa chỉ (xã, huyện) người nhận: " + diaChi);
+        System.out.println("sdt người nhận: " + sdt);
+    }
+
+    public void xuatnguoigui() {
+        System.out.println("họ tên người gửi: " + hoTen);
+        System.out.println("địa chỉ người gửi: " + diaChi);
+        System.out.println("sdt người gửi: " + sdt);
     }
 
 }

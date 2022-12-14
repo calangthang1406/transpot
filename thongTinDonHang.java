@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -9,25 +7,24 @@ import java.util.Scanner;
  *
  * @author PC
  */
+import java.util.Scanner;
+
 public class thongTinDonHang {
 
     private String loaiHang;
-    private String tienHang;
-    private String trongLuong;
+    private int tienHang;
+    private int trongLuong;
     private int cao;
     private int rong;
-    Scanner scanner = new Scanner(System.in);
+    private int tongTien;
+    private int tongShip;
+    private int thanhTien;
+    private int khoiluong;
 
     public thongTinDonHang() {
     }
 
-    public thongTinDonHang(String loaiHang, String tienHang, String trongLuong, int cao, int rong) {
-        this.loaiHang = loaiHang;
-        this.tienHang = tienHang;
-        this.trongLuong = trongLuong;
-        this.cao = cao;
-        this.rong = rong;
-    }
+    Scanner a = new Scanner(System.in);
 
     public String getLoaiHang() {
         return loaiHang;
@@ -37,19 +34,19 @@ public class thongTinDonHang {
         this.loaiHang = loaiHang;
     }
 
-    public String getTienHang() {
+    public int getTienHang() {
         return tienHang;
     }
 
-    public void setTienHang(String tienHang) {
+    public void setTienHang(int tienHang) {
         this.tienHang = tienHang;
     }
 
-    public String getTrongLuong() {
+    public int getTrongLuong() {
         return trongLuong;
     }
 
-    public void setTrongLuong(String trongLuong) {
+    public void setTrongLuong(int trongLuong) {
         this.trongLuong = trongLuong;
     }
 
@@ -69,25 +66,94 @@ public class thongTinDonHang {
         this.rong = rong;
     }
 
+    public int getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(int tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public int getTongShip() {
+        return tongShip;
+    }
+
+    public void setTongShip(int tongShip) {
+        this.tongShip = tongShip;
+    }
+
+    public int getThanhTien() {
+        return thanhTien;
+    }
+
+    public void setThanhTien(int thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+
+    public Scanner getA() {
+        return a;
+    }
+
+    public void setA(Scanner a) {
+        this.a = a;
+    }
+    
+
+ 
     /* PHƯƠNG THỨC */
     // Nhập thông tin đơn hàng
-    public void nhap() {
-        System.out.println("Nhap loai hang: ");
-        loaiHang = scanner.nextLine();
-        System.out.println("Tien hang: ");
-        tienHang = scanner.nextLine();
-        System.out.println("Trong luong: ");
-        trongLuong = scanner.nextLine();
-        System.out.println("Chieu cao: ");
-        cao = scanner.nextInt();
-        System.out.println("Chieu rong: ");
-        rong = scanner.nextInt();
+    public void nhapthongtin() {
+        System.out.println("NHẬP THÔNG TIN ĐƠN HÀNG: ");
+        System.out.println("loại hàng: ");
+        loaiHang = a.nextLine();
+        System.out.println("nhập tiền hàng: ");
+        tienHang = a.nextInt();
+        System.out.println("nhập trọng lượng hàng: ");
+        khoiluong = a.nextInt();
+        System.out.println("nhập chiều cao hàng: ");
+        cao = a.nextInt();
+        System.out.println("nhập chiều rộng hàng: ()");
+        rong = a.nextInt();
     }
 
-    @Override
-    public String toString() {
-        return "Nhap loai hang: " + this.loaiHang + ",Tien hang" + this.tienHang + ",Trong luong " + this.trongLuong
-                + ",Chieu cao" + this.cao + ",Chieu rong" + this.rong;
-    }
+    /*Nhập thông tin đơn hàng*/
+    public void xuatthongtin() {
+        /*System.out.println("---------------------------");
+        System.out.println("xác nhận thông tin hàng");
+        System.out.println("loại hàng: " + loaiHang);
+        System.out.println("tiền hàng: " + tienHang);
+        System.out.println("trọng lượng hàng: " + trongLuong);
+        System.out.println("chiều cao hàng: " + cao);
+        System.out.println("chiều rộng hàng: " + rong);*/
 
+    }
+    public void tinhTongTien(int trongLuong, int cao, int rong, int tienHang, int thanhTien) {
+        if (khoiluong <= 10 && cao < 25 && rong < 25) {
+            System.out.println("Xác nhận tiền hàng là: "+tienHang);
+            tongShip = thanhTien;
+            tongTien = tongShip + tienHang;
+            System.out.println("tổng tiền là: " + tongTien);
+        } else if (khoiluong > 10 && cao < 25 && rong < 25) {
+            System.out.println("Xác nhận tiền hàng là: "+tienHang);
+            System.out.println("khối lượng trên 10kg: +10000 phí ship");
+            tongShip = thanhTien + 10000;
+            tongTien = tongShip + tienHang;
+            System.out.println("tổng phí ship là: " + tongShip);
+            System.out.println("tổng tiền là: " + tongTien);
+        } else if (khoiluong <= 10 && cao > 25 || rong > 25) {
+            System.out.println("Xác nhận tiền hàng là: "+tienHang);
+            System.out.println("chiều cao hoặc chiều rộng lớn hơn 25cm: +10000 phí ship");
+            tongShip = thanhTien + 10000;
+            tongTien = tongShip + tienHang;
+            System.out.println("tổng phí ship là: " + tongShip);
+            System.out.println("tổng tiền là: " + tongTien);
+        } else if (khoiluong > 10 && cao > 25 || rong > 25) {
+            System.out.println("Xác nhận tiền hàng là: "+tienHang);
+            System.out.println("chiều cao hoặc chiều rộng lớn hơn 25cm và khối lượng lớn hơn 10kg +20000 phí ship");
+            tongShip = thanhTien + 20000;
+            tongTien = tongShip + tienHang;
+            System.out.println("tổng phí ship là: " + tongShip);
+            System.out.println("tổng tiền người nhận thanh toán là: " + tongTien);
+        }
+    }
 }
